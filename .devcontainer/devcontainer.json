@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>仓库视频预览器</title>
+<style>
+.item{margin:16px 0}
+video{max-width:100%;}
+</style>
+</head>
+<body>
+  <h1>视频列表</h1>
+  <div id="list"></div>
+<script>
+// 在这里填写你的视频文件名数组
+const videos = [
+  "demo1.mp4",
+  "demo2.mp4"
+];
+const wrap = document.getElementById("list");
+videos.forEach(name=>{
+  const div = document.createElement("div");
+  div.className = "item";
+  div.innerHTML = `
+    <h3>${name}</h3>
+    <video controls>
+      <source src="${name}" type="video/mp4">
+    </video>
+  `;
+  wrap.appendChild(div);
+})
+</script>
+</body>
+</html>
